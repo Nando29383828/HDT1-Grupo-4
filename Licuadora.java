@@ -1,4 +1,4 @@
-
+import org.junit.*;
 
 public class Licuadora implements ILicuadora {
 
@@ -10,20 +10,24 @@ public class Licuadora implements ILicuadora {
         this.lleno = false;
     }
 
-    public setVelocidad(int velocidad) {
+    public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
 
+    @Override
     public boolean endenderLicuadora(){
-        if (velocidad = 0) {
+        if (velocidad == 0) {
             System.out.println("Se encendio la licuadora");
-            Licuadora.setVelocidad(obtenerVelocidadActual()+ 1);
+            setVelocidad(obtenerVelocidadActual()+ 1);
+            return false;
         }
         else {
             System.out.println("La Licuadora ya estaba endendida");
+            return true;
         }
     }
 
+    @Override
     public boolean llenarLicuadora(){
         if (!lleno){
             lleno = true;
@@ -36,34 +40,42 @@ public class Licuadora implements ILicuadora {
         }
     }
 
+    @Override
+    @Test
     public boolean incrementarVelocidad(int velocidad) {
-        if (!llena){
+        if (!lleno){
             System.out.println("No se puede cambiar velocidad. Esta vacia");
+            return true;
         }
 
         if (velocidad >= 10){
             System.out.println("No se puede cambiar velocidad. Esta al maximo");
+            return true;
         }
 
-        if (velocidad = 0){
+        if (velocidad == 0){
             System.out.println("No se puede cambiar velocidad. Esta apagada");
             return false;
         }
 
         else {
-            licuadora.setVelocidad(obtenerVelocidadActual()+1);
+            setVelocidad(obtenerVelocidadActual()+1);
             System.out.println("Se subio la velocidad a:" + obtenerVelocidadActual());
+            return true;
         }
     }
 
+    @Override
     public int obtenerVelocidadActual(){
         return velocidad;
     }
 
+    @Override
     public boolean estaLlena(){
         return lleno;
     }
 
+    @Override
     public boolean vaciarLicuadora(){
         if (lleno){
             System.out.println("La Licuadora se vacio");
@@ -77,6 +89,7 @@ public class Licuadora implements ILicuadora {
         }
     }
 
+    @Override
     public boolean apagarLicuadora(){
         if (velocidad != 0) {
             System.out.println("La licuadora se a apagado");

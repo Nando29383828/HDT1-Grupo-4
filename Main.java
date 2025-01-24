@@ -26,7 +26,8 @@ public class Main{
                     licuadora.llenarLicuadora();
                     break;
                 case 3:
-                    licuadora.incrementarVelocidad();
+                    int new_velocidad = licuadora.obtenerVelocidadActual();
+                    licuadora.incrementarVelocidad(new_velocidad);
                     break;
                              
             }
