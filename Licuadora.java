@@ -1,3 +1,4 @@
+/*interfaz con los métodos que utiliza la licuadora */
 // Licuadora.java
 public interface Licuadora {
     void encender();

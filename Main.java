@@ -1,7 +1,13 @@
 // Main.java
 import java.util.Scanner;
 
+
+/* Clase principal que tiene toda la interacción del usuario  */
 public class Main {
+
+
+/* Menú principal que incluye todas las funciones del programa */
+
     public static void main(String[] args) {
         Licuadora licuadora = new LicuadoraSimple();
         Scanner scanner = new Scanner(System.in);
